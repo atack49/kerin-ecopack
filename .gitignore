@@ -1,0 +1,12 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+error_log
+php_errors.log
+
+# Configuración sensible (si existiera)
+.env
+config.local.php
