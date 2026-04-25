@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kerin EcoPack | Tu negocio, sin huella de carbono</title>
-    <meta name="description" content="Empaques 100% ecológicos y biodegradables para envíos y alimentos. Reduce tu impacto ambiental con materiales certificados FSC y ASTM D6400.">
+    <meta name="description" content="Líderes en empaques sustentables y biodegradables. Ofrecemos soluciones personalizadas sin huella de carbono: cajas kraft, bolsas y desechables certificados FSC.">
+    <meta name="keywords" content="empaques sustentables, empaques ecológicos, cajas kraft biodegradables, envases caña de azúcar, empaques al por mayor, empaques sin plástico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-dominio.com/">
+    <meta property="og:title" content="Kerin EcoPack | Tu negocio, sin huella de carbono">
+    <meta property="og:description" content="Líderes en empaques sustentables y biodegradables. Soluciones personalizadas para empresas con impacto real.">
+    <meta property="og:image" content="https://tu-dominio.com/assets/img/hero_packaging_premium.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-dominio.com/">
+    <meta property="twitter:title" content="Kerin EcoPack | Tu negocio, sin huella de carbono">
+    <meta property="twitter:description" content="Líderes en empaques sustentables y biodegradables. Soluciones personalizadas para empresas con impacto real.">
+    <meta property="twitter:image" content="https://tu-dominio.com/assets/img/hero_packaging_premium.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,14 +100,14 @@
         
         <div class="catalog-grid">
             <div class="catalog-item">
-                <img src="assets/img/shipping_products_kraft.png" alt="Cajas y Bolsas para Envíos">
+                <img src="assets/img/shipping_products_kraft.png" alt="Cajas y Bolsas para Envíos" loading="lazy">
                 <div class="catalog-overlay">
                     <h3>Envíos Premium</h3>
                     <p>Cajas de cartón corrugado y bolsas kraft reforzadas. Ideales para E-commerce.</p>
                 </div>
             </div>
             <div class="catalog-item">
-                <img src="assets/img/food_containers_sugarcane.png" alt="Desechables de Bagazo de Caña">
+                <img src="assets/img/food_containers_sugarcane.png" alt="Desechables de Bagazo de Caña" loading="lazy">
                 <div class="catalog-overlay">
                     <h3>Línea Alimentos</h3>
                     <p>Desechables de bagazo de caña de azúcar. 100% compostables en 90 días.</p>
@@ -164,7 +181,12 @@
 
                     <div class="form-group full-width" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 10px;">
                         <input type="checkbox" id="privacidad" name="privacidad" style="width: auto; margin-top: 5px;" required>
-                        <label for="privacidad" style="font-size: 0.85rem;">Acepto el aviso de privacidad y el tratamiento de mis datos personales conforme a la ley.</label>
+                        <label for="privacidad" style="font-size: 0.85rem;">Acepto el <a href="#" id="openPrivacy" style="color: white; text-decoration: underline;">aviso de privacidad</a> y el tratamiento de mis datos personales conforme a la ley.</label>
+                    </div>
+
+                    <!-- Honeypot -->
+                    <div class="hp-field" style="display: none;">
+                        <input type="text" name="b_name" tabindex="-1" autocomplete="off">
                     </div>
 
                     <div class="full-width">
@@ -182,6 +204,23 @@
     <footer style="padding: 40px 5%; text-align: center; background: #f4f1ea; color: #666;">
         <p>&copy; 2026 KERIN ECOPACK - Líderes en Empaques Sostenibles. <br> "Impacto real para un futuro sin carbono".</p>
     </footer>
+
+    <!-- Modal de Privacidad -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 20px;">Aviso de Privacidad</h2>
+            <div style="max-height: 400px; overflow-y: auto; text-align: left; font-size: 0.9rem; color: #333;">
+                <p>En KERIN ECOPACK, la privacidad de sus datos es nuestra prioridad...</p>
+                <br>
+                <p><strong>1. Datos que recabamos:</strong> Nombre, correo y teléfono únicamente para fines comerciales y de cotización.</p>
+                <br>
+                <p><strong>2. Uso de la información:</strong> Los datos serán utilizados para contactarlo referente a su solicitud y no serán compartidos con terceros sin su consentimiento.</p>
+                <br>
+                <p>Usted puede ejercer sus derechos ARCO contactando a nuestro equipo legal.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

@@ -17,14 +17,31 @@ $db_name = 'DB_NAME_HERE';
 $db_user = 'DB_USER_HERE';
 $db_pass = 'DB_PASS_HERE';
 
-// 2. Datos del Formulario
-$nombre = $_POST['nombre'] ?? '';
-$email = $_POST['email'] ?? '';
-$telefono = $_POST['telefono'] ?? '';
-$tipo_cliente = $_POST['tipo_cliente'] ?? '';
-$producto = $_POST['producto'] ?? '';
-$cantidad = $_POST['cantidad'] ?? '';
-$plazo = $_POST['plazo'] ?? '';
+// 2. Validación Honeypot (Anti-Spam)
+if (!empty($_POST['b_name'])) {
+    // Si el campo oculto tiene contenido, es un bot
+    echo json_encode(['success' => false, 'message' => 'Spam detected']);
+    exit;
+}
+
+// 3. Captura y Sanitización de Datos
+function clean($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
+}
+
+$nombre = clean($_POST['nombre'] ?? '');
+$email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+$telefono = clean($_POST['telefono'] ?? '');
+$tipo_cliente = clean($_POST['tipo_cliente'] ?? '');
+$producto = clean($_POST['producto'] ?? '');
+$cantidad = filter_var($_POST['cantidad'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+$plazo = clean($_POST['plazo'] ?? '');
+
+// Validación de email real
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['success' => false, 'message' => 'Email inválido']);
+    exit;
+}
 
 // Validación básica
 if (empty($nombre) || empty($email) || empty($telefono)) {
